@@ -1,10 +1,10 @@
-package com.miniProject.restauranti;
+package com.miniProject.restaurant;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class RestaurantiApplicationTests {
+class RestaurantApplicationTests {
 
 	@Test
 	void contextLoads() {
