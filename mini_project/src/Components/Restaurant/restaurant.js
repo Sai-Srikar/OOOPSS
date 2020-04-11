@@ -18,7 +18,7 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Pizza from '../../resources/pizza.jpg';
 
 const useStyles = makeStyles((theme) => ({
-  root: {
+  root: { 
     width: 250,
   },
   media: {

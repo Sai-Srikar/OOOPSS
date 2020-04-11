@@ -1,4 +1,4 @@
-package com.miniProject.restaurant;
+package com.miniProject.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,10 +6,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-public class RestaurantApplication {
+@EnableSwagger2
+public class OrderApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RestaurantApplication.class, args);
+		SpringApplication.run(OrderApplication.class, args);
 	}
 
 }

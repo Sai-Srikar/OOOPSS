@@ -18,9 +18,18 @@ import Links from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import { mainListItems, secondaryListItems } from './listItems';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListSubheader from '@material-ui/core/ListSubheader';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import PeopleIcon from '@material-ui/icons/People';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import AssignmentIcon from '@material-ui/icons/Assignment'; 
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import RestaurantLayout from './RestaurantLayout/RestaurantLayout';
+import MyProfile from './MyProfile/MyProfile';
 
 function Copyright() {
   return (
@@ -130,6 +139,7 @@ export default function Dashboard() {
 
   return (
     <div className={classes.root}>
+    <Router>
       <CssBaseline />
       <AppBar position="absolute" className={clsx(classes.appBar)}>
         <Toolbar className={classes.toolbar}>
@@ -169,21 +179,53 @@ export default function Dashboard() {
         }}
         open={open}
       > 
-        <List>{mainListItems}</List>
+        <List>
+        <div>
+        <Link to="/restaurant">
+          <ListItem button>
+            <ListItemIcon>
+              <DashboardIcon />
+            </ListItemIcon>
+            <ListItemText primary="Restaurants" />
+          </ListItem>
+          </Link>
+          <ListItem button>
+            <ListItemIcon>
+              <ShoppingCartIcon />
+            </ListItemIcon>
+            <ListItemText primary="Cart" />
+          </ListItem>
+          <ListItem button>
+            <ListItemIcon>
+              <AssignmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Previous Orders" />
+          </ListItem>
+          <Link to="/myProfile">
+          <ListItem button >
+            <ListItemIcon>
+              <AccountCircleIcon />
+            </ListItemIcon>
+            <ListItemText primary="My Profile" />
+          </ListItem>
+          </Link>
+        </div>
+
+        </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            <Router>
-              <Route path="/"><RestaurantLayout /></Route>
-            </Router>
+              <Route path="/myProfile"><MyProfile /></Route>
+              <Route path="/restaurant"><RestaurantLayout /></Route>
           </Grid>
           <Box pt={4}>
             <Copyright />
           </Box>
         </Container>
       </main>
+      </Router>
     </div>
   );
 }

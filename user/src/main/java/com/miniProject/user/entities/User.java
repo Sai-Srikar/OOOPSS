@@ -1,12 +1,9 @@
 package com.miniProject.user.entities;
 
 import java.util.ArrayList;
-
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
 @Document("User")
 public class User {
 	
