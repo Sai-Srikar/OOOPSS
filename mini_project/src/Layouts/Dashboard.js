@@ -29,6 +29,7 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AssignmentIcon from '@material-ui/icons/Assignment'; 
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import RestaurantLayout from './RestaurantLayout/RestaurantLayout';
+import SpecificRestaurant from './RestaurantLayout/SpecificRestaurant';
 import MyProfile from './MyProfile/MyProfile';
 
 function Copyright() {
@@ -112,8 +113,8 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'auto',
   },
   container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
+    padding: theme.spacing(1),
+    margin:0
   },
   paper: {
     padding: theme.spacing(2),
@@ -216,9 +217,10 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
+          <Grid container >
               <Route path="/myProfile"><MyProfile /></Route>
               <Route path="/restaurant"><RestaurantLayout /></Route>
+              <Route path="/id"><SpecificRestaurant /></Route>
           </Grid>
           <Box pt={4}>
             <Copyright />

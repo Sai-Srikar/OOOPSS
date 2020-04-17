@@ -14,6 +14,7 @@ import { red } from '@material-ui/core/colors';
 import StarRateIcon from '@material-ui/icons/StarRate';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Pizza from '../../resources/pizza.jpg';
 
@@ -36,10 +37,12 @@ export default function RecipeReviewCard() {
   return (
     <Card className={classes.root}>
       
+    <Link to="/id">
       <CardMedia
         className={classes.media}
         image={Pizza}
       />
+      </Link>
       <CardContent>
         <Typography >
           Pizzaronee
@@ -50,12 +53,12 @@ export default function RecipeReviewCard() {
         </Typography>
 
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions >
         <IconButton aria-label="add to favorites">
           <StarRateIcon />
         </IconButton>
-        <Typography>.   35min </Typography>
-        <Typography> .   500 for 2</Typography>
+        <Typography>   35min </Typography>
+        <Typography>    500 for 2</Typography>
       </CardActions>
     </Card>
   );
