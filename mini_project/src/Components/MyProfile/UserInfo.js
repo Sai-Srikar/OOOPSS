@@ -11,6 +11,11 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogContentText from '@material-ui/core/DialogContentText';
+import DialogTitle from '@material-ui/core/DialogTitle';
 
 const useStyles = makeStyles((theme) => ({
   text:{
@@ -48,6 +53,15 @@ const useStyles = makeStyles((theme) => ({
 
 export default function UserInfo() {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <Grid container>
@@ -101,11 +115,65 @@ export default function UserInfo() {
 
         </CardContent>
       <CardActions >
-        <Button size="medium" color="secondary" variant="contained"  startIcon={<EditIcon />}>
+        <Button size="medium" color="secondary" variant="contained"  startIcon={<EditIcon />} onClick={handleClickOpen}>
           Edit
         </Button>
       </CardActions>
     </Card>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{"Edit Profile"}</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+
+          <TextField
+          id="standard-read-only-input"
+          label="Name"
+          defaultValue="Srikar"
+          className={classes.text}
+        />
+
+        <TextField
+          id="standard-read-only-input"
+          label="Mobile Number"
+          className={classes.text}
+          defaultValue="7894561230"
+        />
+
+        <TextField
+          id="standard-read-only-input"
+          label="Email ID"
+          className={classes.text}
+          defaultValue="qwert@yuiop.com"
+        />
+
+        <TextField
+          id="standard-read-only-input"
+          label="New Password"
+          className={classes.text}
+        />
+
+        <TextField
+          id="standard-read-only-input"
+          label="Retype New Password"
+          className={classes.text}
+        />
+
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color='secondary' variant="contained">
+            Cancel
+          </Button>
+          <Button onClick={handleClose} color="primary" variant="contained" autoFocus>
+            Submit
+          </Button>
+        </DialogActions>
+      </Dialog>
 
       </Grid>
       

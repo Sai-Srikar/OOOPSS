@@ -43,6 +43,7 @@ public class RestaurantService {
 		temp.setItems(restaurant.getItems());
 		temp.setLocationId(restaurant.getLocationId());
 		temp.setRestaurantName(restaurant.getRestaurantName());
+		temp.setCostForTwo(restaurant.getCostForTwo());
 		restaurantRepository.save(temp);
 	}
 	
@@ -63,6 +64,23 @@ public class RestaurantService {
 		ArrayList<String> tempo=temp.getItems();
 		tempo.remove(itemId);
 		temp.setItems(tempo);
+		restaurantRepository.save(temp);
+	}
+	
+	@Transactional
+	public void updateLike(String restaurantId, String userId) throws RestaurantNotFoundException
+	{
+		Restaurant temp=(Restaurant) restaurantRepository.findById(restaurantId).orElseThrow(()-> new RestaurantNotFoundException(restaurantId));
+		ArrayList<String> users=temp.getLikes();
+		if(users.contains(userId))
+		{
+			users.remove(userId);
+		}
+		else
+		{
+			users.add(userId);
+		}
+		temp.setLikes(users);
 		restaurantRepository.save(temp);
 	}
 }

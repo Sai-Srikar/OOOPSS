@@ -1,6 +1,7 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -50,6 +51,14 @@ export default function RestaurantLayout() {
   const { latitude, longitude, timestamp, accuracy, error } = usePosition(true);
   console.log(latitude);
   const classes = useStyles();
+  const [restaurants,setRestaurants]=React.useState([]);
+
+React.useEffect(() => {
+     axios.get(`http://localhost:8083/gateway/restaurant/all`)
+      .then(res => {
+        setRestaurants(res.data);
+      })
+  }, []);
 
   return (
     <Grid spacing={1}>

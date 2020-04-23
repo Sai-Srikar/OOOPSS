@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import SignIn from './Layouts/SignIn/SignIN';
+import RestaurantRegistration from './Layouts/Registrations/RestaurantRegistration';
+import Checkout from './Layouts/Checkouts/CheckOut';
+import SignUp from './Layouts/SignIn/SignUp';
 import Dashboard from './Layouts/Dashboard';
 import * as serviceWorker from './serviceWorker';
 

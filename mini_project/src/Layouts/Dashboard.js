@@ -29,7 +29,11 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import AssignmentIcon from '@material-ui/icons/Assignment'; 
 import {BrowserRouter as Router,Switch,Route,Link} from "react-router-dom";
 import RestaurantLayout from './RestaurantLayout/RestaurantLayout';
+import PreviousOrders from './PreviousOrders/PreviousOrders';
 import SpecificRestaurant from './RestaurantLayout/SpecificRestaurant';
+import RestaurantRegistration from './Registrations/RestaurantRegistration';
+import DeliveryGuyRegistration from './Registrations/DeliveryGuyRegistration';
+import CheckOut from './Checkouts/CheckOut';
 import MyProfile from './MyProfile/MyProfile';
 
 function Copyright() {
@@ -191,15 +195,19 @@ export default function Dashboard() {
           </ListItem>
           </Link>
           <ListItem button>
+          <Link to="/checkout">
             <ListItemIcon>
               <ShoppingCartIcon />
             </ListItemIcon>
+            </Link>
             <ListItemText primary="Cart" />
           </ListItem>
           <ListItem button>
+          <Link to="/PreviousOrders">
             <ListItemIcon>
               <AssignmentIcon />
             </ListItemIcon>
+            </Link>
             <ListItemText primary="Previous Orders" />
           </ListItem>
           <Link to="/myProfile">
@@ -216,11 +224,15 @@ export default function Dashboard() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          <Grid container >
+        <Container  className={classes.container}>
+          <Grid container style={{padding:'0',smargin:'0'}}>
               <Route path="/myProfile"><MyProfile /></Route>
               <Route path="/restaurant"><RestaurantLayout /></Route>
               <Route path="/id"><SpecificRestaurant /></Route>
+              <Route path="/RestaurantRegistration"><RestaurantRegistration /></Route>
+              <Route path="/DeliveryGuyRegistration"><DeliveryGuyRegistration /></Route>
+              <Route path="/PreviousOrders"><PreviousOrders /></Route>
+              <Route path="/checkOut"><CheckOut /></Route>
           </Grid>
           <Box pt={4}>
             <Copyright />

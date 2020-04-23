@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.miniProject.restaurant.entities.Restaurant;
+import com.miniProject.restaurant.exception.RestaurantNotFoundException;
 import com.miniProject.restaurant.service.RestaurantService;
 
 @RestController
@@ -26,7 +27,7 @@ public class RestaurantController {
 	}
 	
 	@GetMapping("/findAll")
-	public List<Restaurant> findAllUsers()
+	public List<Restaurant> findAll()
 	{
 		return restaurantService.findAll();
 	}
@@ -53,5 +54,11 @@ public class RestaurantController {
 	public void deleteItem(@PathVariable String restaurantId,@RequestBody String itemId) throws Throwable
 	{
 		restaurantService.deleteItem(restaurantId, itemId);
+	}
+	
+	@PutMapping("/updateLike/{restaurantId}")
+	public void updateLike(@PathVariable String restaurantId,@RequestBody String userId) throws RestaurantNotFoundException
+	{
+		restaurantService.updateLike(restaurantId, userId);
 	}
 }

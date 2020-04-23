@@ -18,10 +18,14 @@ import IconButton from '@material-ui/core/IconButton';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import {add} from '../../Layouts/data/address.js';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
+  },
+  tte:{
+    padding:theme.spacing(1),
   },
   image: {
     backgroundRepeat: 'no-repeat',
@@ -56,8 +60,8 @@ export default function Addresses() {
     <Grid xs={12}>
     <Typography>Manage Addresses</Typography>
     </Grid>
-
-      <Grid xs={12} md={6}>
+    {add.map((order) => (
+      <Grid xs={12} md={6} className={classes.tte}>
         <Card >
       <CardHeader
         avatar={
@@ -70,16 +74,15 @@ export default function Addresses() {
             <EditIcon />
           </IconButton>
         }
-        title="Home"
+        title={order.name}
       />
       <CardContent>
         <Typography variant="body2" color="textSecondary" component="p">
-          This impressive paella is a perfect party dish and a fun meal to cook together with your
-          guests. Add 1 cup of frozen peas along with the mussels, if you like.
+          {order.no}
         </Typography>
       </CardContent>
     </Card>
-      </Grid>
+      </Grid>))}
     </Grid>
   );
 }

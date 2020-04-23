@@ -1,9 +1,9 @@
 package com.miniProject.restaurant.entities;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document("item")
 public class Item {
 	
 	@Id

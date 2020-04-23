@@ -13,19 +13,21 @@ public class User {
 	private String mobileNumber;
 	private String category;
 	private String emailId;
+	private ArrayList<String> favouriteRestaurants;
 	private ArrayList<String> locationId;
 	
 	public User() {
 	}
 
 	public User(String userId, String name, String mobileNumber, String category, String emailId,
-			ArrayList<String> locationId) {
+			ArrayList<String> favouriteRestaurants, ArrayList<String> locationId) {
 		super();
 		this.userId = userId;
 		this.name = name;
 		this.mobileNumber = mobileNumber;
 		this.category = category;
 		this.emailId = emailId;
+		this.favouriteRestaurants = favouriteRestaurants;
 		this.locationId = locationId;
 	}
 
@@ -67,6 +69,14 @@ public class User {
 
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
+	}
+
+	public ArrayList<String> getFavouriteRestaurants() {
+		return favouriteRestaurants;
+	}
+
+	public void setFavouriteRestaurants(ArrayList<String> favouriteRestaurants) {
+		this.favouriteRestaurants = favouriteRestaurants;
 	}
 
 	public ArrayList<String> getLocationId() {
